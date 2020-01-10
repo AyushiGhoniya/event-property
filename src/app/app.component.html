@@ -1,0 +1,44 @@
+<router-outlet></router-outlet>
+<h3>Radio button :</h3>
+<input type="radio" name="gender" value="Female" (change)="getRadioValue($event)" checked> Female<br>
+<input type="radio" name="gender" value="Male" (change)="getRadioValue($event)"> Male<br>
+<h3>Gender : {{ selectedGender }}</h3>
+<hr>
+
+<h3>Dropdown using simple Array :</h3>
+<select name="hobbies" (change)="getSelectedValue($event)">
+  <option *ngFor="let hobby1 of hobbiesArray">
+    {{ hobby1 }}
+  </option>
+</select>
+<br>
+<h4>ID : {{ selectedIndex }} , Value : {{ selectedValue }} </h4>
+
+<h3>Dropdown using object :</h3>
+<select (change)="getSelectedValueObj($event)">
+  <option *ngFor="let h of hobbiesSelect">
+    {{ h.name }}
+  </option>
+</select>
+<h4>ID : {{ hobbySelectedForObject.id }} , Value : {{ hobbySelectedForObject.name }}</h4>
+<hr>
+
+<h3>Checkbox using Simple Array :</h3>
+<div *ngFor="let hobby of hobbiesArray">
+  <input type="checkbox" value= "{{ hobby }}" (change)="getCheckedValue($event)">  {{ hobby }}
+</div>
+<h4>Selected Values :</h4>
+<div *ngFor="let t of tempArray">
+{{ t }}
+</div>
+<hr>
+
+<h3>Checkbox using Object Array</h3>
+<div *ngFor="let hobby of hobbiesCheck">
+  <input type="checkbox" value= "{{ hobby }}" (change)="getCheckedValueObj($event, hobby)">  {{ hobby.name }}
+</div>
+<h4>Selected Values :</h4>
+  <div *ngFor="let hobby of hobbiesCheck">
+    {{ hobby | json }}
+  </div>
+<hr>
